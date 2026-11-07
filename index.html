@@ -93,13 +93,14 @@ a:not([href]) { cursor: pointer; }
 /* ---------- About ---------- */
 .sec { padding: clamp(80px, 11vw, 150px) 0; }
 #about { padding-top: clamp(48px, 6vw, 80px); }
-.about { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; }
+/* About: photo on the left at the full height of the text, label, statement and paragraph stacked on the right */
+.about { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(32px, 5vw, 80px); }
+.about__img { width: 100%; height: 0; min-height: 100%; object-fit: cover; object-position: 35% 50%; border-radius: 16px; }
+.about__copy { display: grid; gap: 22px; align-content: start; }
 .statement { margin: 0; font-weight: 500; font-size: clamp(26px, 3.2vw, 44px); line-height: 1.16; letter-spacing: -.02em; }
 .statement.is-live .w { color: var(--faint); transition: color .25s; }
 .statement.is-live .w.on { color: var(--ink); }
-.about__more { grid-column: 2; display: grid; grid-template-columns: 200px 1fr; gap: 28px; align-items: start; margin-top: 18px; }
-.about__more img { aspect-ratio: 4 / 3; object-fit: cover; border-radius: 16px; }
-.about__more p { margin: 0; max-width: 46ch; color: var(--muted); font-size: 16px; }
+.about__more { margin: 6px 0 0; max-width: 52ch; color: var(--muted); font-size: 16px; }
 
 .stats { display: grid; grid-template-columns: repeat(3, 1fr); margin: clamp(70px, 9vw, 120px) 0 0; padding: 0; list-style: none; text-align: center; }
 .stats li { padding: 0 12px; }
@@ -211,7 +212,7 @@ a:not([href]) { cursor: pointer; }
   .hero__main { grid-template-columns: 1fr; }
   .hero__side { justify-self: start; }
   .about, .head, .contact__grid { grid-template-columns: 1fr; }
-  .about__more { grid-column: 1; }
+  .about__img { height: auto; min-height: 0; aspect-ratio: 4 / 3; }
   .projects { grid-template-columns: 1fr 1fr; }
   .projects li:last-child { display: none; }
   .steps { grid-template-columns: 1fr 1fr; }
@@ -230,7 +231,6 @@ a:not([href]) { cursor: pointer; }
   .hero__area { padding: 0 20px; font-size: 12.5px; }
   .area-long { display: none; }
   .area-short { display: inline; }
-  .about__more { grid-template-columns: 1fr; }
   .stats { grid-template-columns: 1fr 1fr; }
   .stats li:last-child { grid-column: 1 / -1; }
   .stats { gap: 40px 12px; }
@@ -284,11 +284,11 @@ a:not([href]) { cursor: pointer; }
   <section class="sec" id="about" aria-labelledby="about-h">
     <div class="wrap">
       <div class="about">
-        <h2 class="dot" id="about-h">About us</h2>
-        <p class="statement" data-statement>Halden is a family-run design-build firm based in Manhattan Beach. We build new custom homes and remodel existing ones, with one team taking your project from the first sketch to the final walkthrough.</p>
-        <div class="about__more">
-          <img src="img/plans.jpg" alt="A builder marking up architectural plans at a desk" loading="lazy" width="1000" height="563">
-          <p>Building near the beach comes with its own rules: tight lots, coastal permits, height limits and neighbors a few feet away. We've worked through all of it for nearly two decades, so your project stays on schedule and your street stays friendly.</p>
+        <img class="about__img" src="img/plans.jpg" alt="A builder marking up architectural plans at a desk" loading="lazy" width="1000" height="563">
+        <div class="about__copy">
+          <h2 class="dot" id="about-h">About us</h2>
+          <p class="statement" data-statement>Halden is a family-run design-build firm based in Manhattan Beach. We build new custom homes and remodel existing ones, with one team taking your project from the first sketch to the final walkthrough.</p>
+          <p class="about__more">Building near the beach comes with its own rules: tight lots, coastal permits, height limits and neighbors a few feet away. We've worked through all of it for nearly two decades, so your project stays on schedule and your street stays friendly.</p>
         </div>
       </div>
       <ul class="stats">
